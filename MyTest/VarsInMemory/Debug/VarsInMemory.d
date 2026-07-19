@@ -1,1 +1,0 @@
-VarsInMemory.o: ../VarsInMemory.c
