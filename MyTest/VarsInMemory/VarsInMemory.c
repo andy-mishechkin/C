@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-typedef enum { CHAR, INT, SINT, UINT, USINT, LLUINT, DOUBLE } Type;\
+typedef enum { CHAR, INT, SINT, UINT, USINT, LLUINT, DOUBLE } Type;
 
 unsigned char e=0xab, *b = &e;
 
