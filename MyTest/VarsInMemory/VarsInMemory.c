@@ -9,7 +9,7 @@ char ch1 = 'a', ch2 = 'b', ch3 = 'c', ch4 = 'd', ch5 = 'e';
 short int si1 = 1, si2 = 2, si3 = 3, si10 = 10, si15 = 15, si23 = 23;
 int i1 = 1, i2 = 2, i3 = 3, i10 = 10, i15 = 15, i23 = 23;
 
-double number = 3.14159;
+double pi = 3.14159;
 
 unsigned short int c=0x1234;
 unsigned int t=0x34567890;
@@ -105,7 +105,7 @@ void main()
     var_info("i15", &i15, INT);
     var_info("i23", &i23, INT);
 
-    var_info("number", &number, DOUBLE);
+    var_info("pi", &pi, DOUBLE);
     var_info("c", &c, USINT);
     var_info("t", &t, UINT);
     var_info("a", &a, LLUINT);
