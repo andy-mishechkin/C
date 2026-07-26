@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-typedef enum { CHAR, INT, SINT, UINT, USINT, LLUINT, DOUBLE } Type;
+typedef enum { CHAR, UCHAR, INT, SINT, UINT, USINT, LLUINT, DOUBLE } Type;
 
 unsigned char e=0xab, *b = &e;
 
@@ -25,51 +25,50 @@ void var_info(char *vname, void *v, Type vtype)
     {
         case CHAR:
         {
-            char cv = *(char*)v;
             typesize = sizeof(char);
-            printf("Variabe value: %c, type: char\n", cv);
+            printf("Variabe value: %c, type: char\n",  *(char*)v);
+            break;
+        }
+        case UCHAR:
+        {
+            typesize = sizeof(unsigned char);
+            printf("Variabe value: %c, type: unsigned char\n",  *(unsigned char*)v);
             break;
         }
         case INT:
         {
-            int iv = *(int*)v;
             typesize = sizeof(int);
-            printf("Variabe value: %d, type: int\n", iv);
+            printf("Variabe value: %d, type: int\n", *(int*)v);
             break;
         }
         case UINT:
         {
-            unsigned int uiv = *(unsigned int*)v;
             typesize = sizeof(unsigned int);
-            printf("Variabe value: %u, type: unsigned int\n", uiv);
+            printf("Variabe value: %u, type: unsigned int\n", *(unsigned int*)v);
             break;
         }
         case SINT:
         {
-            short int siv = *(short int*)v;
             typesize = sizeof(short int);
-            printf("Variabe value: %hd, type: short int\n", siv);
+            printf("Variabe value: %hd, type: short int\n", *(short int*)v);
             break;
         }
         case USINT:
         {
-            unsigned short int usiv=*(unsigned short int*)v;
             typesize = sizeof(short int);
-            printf("Variabe value: %hu, type: unsigned short int\n", usiv);
+            printf("Variabe value: %hu, type: unsigned short int\n", *(unsigned short int*)v);
             break;
         }
         case LLUINT:
         {
-            long long unsigned int lluiv=*(long long unsigned int*)v;
             typesize = sizeof(long long unsigned int);
-            printf("Variabe value: %llu, type: long long unsigned int\n", lluiv);
+            printf("Variabe value: %llu, type: long long unsigned int\n", *(long long unsigned int*)v);
             break;
         }
         case DOUBLE:
         {
-            double dv = *(double*)v;
             typesize = sizeof(double);
-            printf("Variabe value: %lf, type: double\n", dv);
+            printf("Variabe value: %lf, type: double\n", *(double*)v);
             break;
         }
     }
@@ -84,7 +83,7 @@ void var_info(char *vname, void *v, Type vtype)
 
 void main()
 {    
-    var_info("e", &e, CHAR);
+    var_info("e", &e, UCHAR);
     var_info("ch1", &ch1, CHAR);
     var_info("ch2", &ch2, CHAR);
     var_info("ch3", &ch3, CHAR);
