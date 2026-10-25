@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-typedef enum { CHAR, UCHAR, INT, SINT, UINT, USINT, LLUINT, DOUBLE } Type;
+typedef enum { CHAR, UCHAR, INT, SINT, UINT, USINT, LLUINT, DOUBLE, STR_P1, STR_P2 } Type;
 
 unsigned char e=0xab, *b = &e;
 
@@ -14,6 +14,18 @@ double pi = 3.14159;
 unsigned short int c=0x1234;
 unsigned int t=0x34567890;
 long long unsigned int a=0x6178569812324572;
+
+typedef struct {
+    int age;
+    char* name;
+} str_p1;
+str_p1 person1 = {51, "Andy"};
+
+typedef struct {
+    char* name;
+    int age;
+} str_p2;
+str_p2 person2 = {"Andy", 51};
 
 void var_info(char *vname, void *v, Type vtype)
 {   
@@ -71,6 +83,22 @@ void var_info(char *vname, void *v, Type vtype)
             printf("Variabe value: %lf, type: double\n", *(double*)v);
             break;
         }
+        case STR_P1:
+        {
+            typesize = sizeof(str_p1);
+            printf("Structure STR_P1\n");
+            printf("Field age value: %d, type: int\n", ((str_p1*)v)->age);
+            printf("Field name value: %s, type: char*\n", ((str_p1*)v)->name);
+            break;
+        }
+        case STR_P2:
+        {
+            typesize = sizeof(str_p2);
+            printf("Structure STR_P2\n");
+            printf("Field name value: %s, type: char*\n", ((str_p2*)v)->name);
+            printf("Field age value: %d, type: int\n", ((str_p2*)v)->age);
+            break;
+        }
     }
     printf("bytes in memory: %lu\n", typesize);
     for(int i=0; i<typesize; i++)
@@ -108,6 +136,9 @@ void main()
     var_info("c", &c, USINT);
     var_info("t", &t, UINT);
     var_info("a", &a, LLUINT);
+
+    var_info("struct str_p1", &person1, STR_P1);
+    var_info("struct str_p2", &person2, STR_P2);
 
     printf("Raw memory map output.\n");
     int j=0;
