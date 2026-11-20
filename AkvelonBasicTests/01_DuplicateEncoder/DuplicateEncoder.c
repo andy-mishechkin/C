@@ -1,3 +1,15 @@
+/*
+The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only 
+once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining 
+if a character is a duplicate.
+
+Examples
+"din"      =>  "((("
+"recede"   =>  "()()()"
+"Success"  =>  ")())())"
+"(( @"     =>  "))(("
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h> 
@@ -9,12 +21,9 @@ void ReplaceSymbol(char *, char, char);
 
 int main(int argc, char *argv[]) {
 	if(argc < 2) {
-		printf("Please enter the source string\n");
+		fprintf(stderr, "Please enter the source string\n");
 		return 1;
 	}
-
-	char *str;
-	char *startPos;
 
 	printf("Original source string in args: %s\n",argv[1]);
 	
