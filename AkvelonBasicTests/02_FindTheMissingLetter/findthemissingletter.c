@@ -8,7 +8,6 @@ The array will always contain letters in only one case.
 */
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h> 
 
 /*
 В языке C каждый символ (char) — это просто маленькое целое число (например, 'a' = 97, 'b' = 98, 'c' = 99). 
