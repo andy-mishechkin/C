@@ -55,8 +55,6 @@ void digital_root(int n) {
         temp /= 10; 
 		sumOfArr += digits[i];         
     }
-	//for (int i = 0; i < count; i++)
-	//	sumOfArr += digits[i];
 	printf("Sum of current array: %d\n", sumOfArr);
 
 	if (sumOfArr > 9) 
