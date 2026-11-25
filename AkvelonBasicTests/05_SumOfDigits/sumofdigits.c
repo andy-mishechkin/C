@@ -61,9 +61,8 @@ void digital_root(int n) {
 
 	if (sumOfArr > 9) 
 		digital_root(sumOfArr);
-	else {
+	else
 		printf("Final sum result: %d\n", sumOfArr);
-	}
 }
 
 int main(int argc, char *argv[]) {
@@ -114,5 +113,4 @@ int main(int argc, char *argv[]) {
 	free(digits);
 	
 	return 0;
-
 }
