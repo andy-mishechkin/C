@@ -21,6 +21,14 @@ And a tower with 6 floors looks like this:
 #include <stdio.h>
 #include <stdlib.h>
 
+void print_array(const char arr[], int len) {
+    for (size_t i = 0; i < len; i++) {
+        printf("%c ", arr[i]);
+    }
+    printf("\n");
+}
+
+
 int str_to_num(char *str){
   char *endptr;
 	int num = strtol(str, &endptr, 10);
@@ -37,10 +45,20 @@ void build_tower(int n) {
   char tower[n][floor_row];
 	for(int i = 0; i < n; i++) {
     int filled = 0;
-    for(j = floor_center; j > 0; j--) {
-      if (filled  )
-    }
+    int c_up = floor_center;
+    for(int c_down = floor_center; c_down > 0; c_down--) {
+      if (c_down >= (floor_center - i))
+        tower[i][c_down] = '*';
+      else
+        tower[i][c_down] = ' ';
       
+      if (c_up <= (floor_center + i))
+        tower[i][c_up] = '*';
+      else
+        tower[i][c_up] = ' ';
+      c_up++;
+    }
+    print_array(tower[i], floor_row);
   }
 }
 
